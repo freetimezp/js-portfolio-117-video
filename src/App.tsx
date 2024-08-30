@@ -1,10 +1,17 @@
-import './App.css';
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+
+import HomePage from "./pages/HomePage";
+import JoinPage from "./pages/JoinPage";
 
 function App() {
   return (
-    <div>
-      <h1 className=''>text</h1>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="*" element={<HomePage />} />
+        <Route path="/" element={<HomePage />} />
+        <Route path="/join" element={<JoinPage />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
