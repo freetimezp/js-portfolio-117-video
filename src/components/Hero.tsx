@@ -18,7 +18,7 @@ const Hero = () => {
                 </div>
             </div>
 
-            <div className="dashboard">
+            <div className="dashboard my-4">
                 <DashboardUI />
             </div>
         </div>

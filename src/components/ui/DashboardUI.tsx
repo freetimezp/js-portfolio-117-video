@@ -1,13 +1,27 @@
-import { Command, Copy, Crown, Disc2, Ellipsis, MessageCircleMore, MicOff, Phone, Search, VideoOff } from "lucide-react";
+import {
+    Command,
+    Copy,
+    Crown,
+    Disc2,
+    Ellipsis,
+    MessageCircleMore,
+    MicOff,
+    Phone,
+    Search,
+    VideoOff
+} from "lucide-react";
 
 import Logo from "../Logo";
 
-import Profile1Img from "../../../public/assets/profile1.jpg"
-import User1Img from "../../../public/assets/user1.jpg"
-import User2Img from "../../../public/assets/user2.jpg"
-import User3Img from "../../../public/assets/user3.jpg"
-import User4Img from "../../../public/assets/user4.jpg"
-import User5Img from "../../../public/assets/user5.jpg"
+import Profile1Img from "../../../public/assets/profile1.jpg";
+import User1Img from "../../../public/assets/user1.jpg";
+import User2Img from "../../../public/assets/user2.jpg";
+import User3Img from "../../../public/assets/user3.jpg";
+import User4Img from "../../../public/assets/user4.jpg";
+import User5Img from "../../../public/assets/user5.jpg";
+
+import SummaryCard from "./SummaryCard";
+import MessageCard from "./MessageCard";
 
 const users = [
     {
@@ -158,6 +172,16 @@ const DashboardUI = () => {
                     </div>
                 </div>
                 {/* end video section */}
+
+
+                {/* start sidebar */}
+                <div className="w-full sm:w-80">
+                    <SummaryCard className="my-5 left-10 rotate-12 hover:rotate-0
+                        hover:left-0" />
+
+                    <MessageCard className="mt-8" />
+                </div>
+                {/* end sidebar */}
             </div>
             {/* end main content */}
         </div>
