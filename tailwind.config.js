@@ -13,6 +13,10 @@ export default {
         secondary: "#161718",
         accent: "#1d1e1f",
         muted: "#959ca7",
+      },
+      boxShadow: {
+        card: '0 0 10px rgba(113, 113, 133, 0.5)',
+        "card-inset": 'inset 0 0 10px rgba(113, 113, 133, 0.5)',
       }
     },
   },
