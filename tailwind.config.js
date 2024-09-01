@@ -30,6 +30,11 @@ export default {
       },
       animation: {
         "slide-logo": "slide 35s linear infinite",
+      },
+      backgroundImage: {
+        invite: "url('./assets/background3.png')",
+        message: "url('./assets/background2.png')",
+        summary: "url('./assets/background1.png')",
       }
     },
   },
