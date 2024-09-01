@@ -1,15 +1,3 @@
-export { default as profile1 } from './profile1.jpg';
-export { default as user1 } from "./user1.jpg";
-export { default as user2 } from "./user2.jpg";
-export { default as user3 } from "./user3.jpg";
-export { default as user4 } from "./user4.jpg";
-export { default as user5 } from "./user5.jpg";
-export { default as user6 } from "./user6.jpg";
-export { default as user7 } from "./user7.jpg";
-export { default as user8 } from "./user8.jpg";
-export { default as user9 } from "./user9.jpg";
-export { default as user10 } from "./user10.jpg";
-
 export { default as amazon } from "./logos/amazon.png";
 export { default as facebook } from "./logos/facebook.png";
 export { default as google } from "./logos/google.png";

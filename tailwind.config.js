@@ -17,6 +17,19 @@ export default {
       boxShadow: {
         card: '0 0 10px rgba(113, 113, 133, 0.5)',
         "card-inset": 'inset 0 0 10px rgba(113, 113, 133, 0.5)',
+      },
+      keyframes: {
+        slide: {
+          from: {
+            transform: 'translateX(0)',
+          },
+          to: {
+            transform: 'translateX(-100%)',
+          },
+        }
+      },
+      animation: {
+        "slide-logo": "slide 35s linear infinite",
       }
     },
   },
