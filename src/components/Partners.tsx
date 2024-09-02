@@ -1,4 +1,4 @@
-
+import { useRef } from "react";
 
 import {
     amazon,
@@ -12,6 +12,11 @@ import {
     skype,
     whatsapp
 } from "../../public/assets/index";
+
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import ScrollTrigger from "gsap/dist/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger);
 
 const partners = [
     { name: "Amazon", logo: amazon },
@@ -37,8 +42,26 @@ const partners = [
 ];
 
 const Partners = () => {
+    const container = useRef(null);
+
+    useGSAP(() => {
+        const timeline = gsap.timeline({
+            delay: 0.5,
+            scrollTrigger: {
+                trigger: container.current,
+                start: "20% bottom",
+                end: "bottom top",
+            }
+        });
+
+        timeline
+            .from(".main-title", { opacity: 0, y: -50 })
+            .from(".logo-slide", { opacity: 0, x: -50 });
+
+    }, { scope: container });
+
     return (
-        <div className="py-20 max-w-screen-lg mx-auto">
+        <div className="py-20 max-w-screen-lg mx-auto" ref={container}>
             <div className="mb-10 p-4">
                 <h1 className="main-title">
                     Chosen by companies at

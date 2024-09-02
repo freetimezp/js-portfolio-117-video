@@ -1,8 +1,14 @@
+import { useRef } from "react";
 import { MessageCircleHeart, ReceiptCent, User } from "lucide-react";
 
 import InviteCard from "./ui/InviteCard";
 import MessageCard from "./ui/MessageCard";
 import SummaryCard from "./ui/SummaryCard";
+
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import ScrollTrigger from "gsap/dist/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger);
 
 const features = [
     {
@@ -29,8 +35,27 @@ const features = [
 ];
 
 const Features = () => {
+    const container = useRef(null);
+
+    useGSAP(() => {
+        const timeline = gsap.timeline({
+            delay: 0.5,
+            scrollTrigger: {
+                trigger: container.current,
+                start: "20% bottom",
+                end: "bottom top",
+            }
+        });
+
+        timeline
+            .from(".main-title", { opacity: 0, x: -50 })
+            .from(".text-muted", { opacity: 0, x: -50 })
+            .from(".box", { opacity: 0, y: 100, stagger: 1 });
+
+    }, { scope: container });
+
     return (
-        <div className="relative py-20 max-w-screen-lg mx-auto">
+        <div className="relative py-20 max-w-screen-lg mx-auto" ref={container}>
             <div className="absolute left-[-300px] w-[322px] h-[348px] bg-gradient-to-r 
                 from-primary/50 to-primary-accent rounded-full blur-[150px] z-0" />
 

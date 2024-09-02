@@ -34,10 +34,10 @@ const Navbar = () => {
             justify-between p-4">
             <Logo />
 
-            <div className={`fixed block h-full w-[300px] top-0 z-40 left-[-320px]
-                ${open && 'left-0'} p-6 bg-background flex flex-col gap-4 transition-all
+            <div className={`fixed h-full w-[300px] top-0 z-40 left-[-320px]
+                p-6 bg-background flex flex-col gap-4 transition-all
                 duration-500 min-[900px]:static min-[900px]:flex-row min-[900px]:w-auto
-                min-[900px]:p-0`}>
+                min-[900px]:p-0 ${open && "left-[0px] !important"}`}>
                 <div className="mb-8 min-[900px]:hidden">
                     <Logo />
                 </div>

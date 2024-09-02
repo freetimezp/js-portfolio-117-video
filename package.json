@@ -11,8 +11,10 @@
   },
   "dependencies": {
     "-": "^0.0.1",
+    "@gsap/react": "^2.1.1",
     "@zegocloud/zego-uikit-prebuilt": "^2.8.1",
     "autoprefixer": "^10.4.20",
+    "gsap": "^3.12.5",
     "lucide-react": "^0.436.0",
     "postcss": "^8.4.41",
     "react": "^18.3.1",

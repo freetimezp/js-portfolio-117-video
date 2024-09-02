@@ -1,9 +1,15 @@
+import { useRef } from "react";
+
 import { Crown, Star } from "lucide-react";
 import User5Image from "/assets/user5.jpg";
 import User6Image from "/assets/user6.jpg";
 import User7Image from "/assets/user7.jpg";
 import User8Image from "/assets/user8.jpg";
 
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import ScrollTrigger from "gsap/dist/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger);
 
 const testimonials = [
     {
@@ -32,10 +38,28 @@ const testimonials = [
     },
 ];
 
-
 const Testimonials = () => {
+    const container = useRef(null);
+
+    useGSAP(() => {
+        const timeline = gsap.timeline({
+            delay: 0.5,
+            scrollTrigger: {
+                trigger: container.current,
+                start: "20% bottom",
+                end: "bottom top",
+            }
+        });
+
+        timeline
+            .from(".main-title", { opacity: 0, x: -50 })
+            .from(".text-muted", { opacity: 0, x: -50 })
+            .from(".review-card", { opacity: 0, y: 100, stagger: 1 });
+
+    }, { scope: container });
+
     return (
-        <div className="py-20 max-w-screen-lg mx-auto">
+        <div className="py-20 max-w-screen-lg mx-auto" ref={container}>
             <div className="max-w-[800px] mx-auto p-4">
                 <h1 className="main-title">
                     What people are saying about OneMeet

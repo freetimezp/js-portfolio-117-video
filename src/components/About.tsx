@@ -1,12 +1,37 @@
+import { useRef } from "react";
 
 import User6Image from "/assets/user6.jpg";
 import User2Image from "/assets/user2.jpg";
 import User5Image from "/assets/user5.jpg";
 import User8Image from "/assets/user8.jpg";
 
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import ScrollTrigger from "gsap/dist/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger);
+
 const About = () => {
+    const container = useRef(null);
+
+    useGSAP(() => {
+        const timeline = gsap.timeline({
+            delay: 0.5,
+            scrollTrigger: {
+                trigger: container.current,
+                start: "20% bottom",
+                end: "bottom top",
+            }
+        });
+
+        timeline
+            .from(".main-title", { opacity: 0, x: -50 })
+            .from(".text-muted", { opacity: 0, x: -50 })
+            .from(".content-box", { opacity: 0, y: 100, stagger: 1 });
+
+    }, { scope: container });
+
     return (
-        <div className="py-20 max-w-screen-lg mx-auto overflow-hidden">
+        <div className="py-20 max-w-screen-lg mx-auto overflow-hidden" ref={container}>
             <div className="p-4">
                 <h1 className="main-title">
                     OneMeet helps all kinds of professionals achieve more.

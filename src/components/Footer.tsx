@@ -1,7 +1,12 @@
+import { useRef } from "react";
 import { Link } from "react-router-dom";
 import Logo from "./Logo";
 import { Facebook, Instagram, Linkedin, Youtube } from "lucide-react";
 
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import ScrollTrigger from "gsap/dist/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger);
 
 const navigation = [
     {
@@ -56,8 +61,28 @@ const socialData = [
 ];
 
 const Footer = () => {
+    const container = useRef(null);
+
+    useGSAP(() => {
+        const timeline = gsap.timeline({
+            delay: 0.5,
+            scrollTrigger: {
+                trigger: container.current,
+                start: "20% bottom",
+                end: "bottom top",
+            }
+        });
+
+        timeline
+            .from(".newsletter", { opacity: 0, y: 50, delay: 1 })
+            .from(".heading", { opacity: 0, x: -50 })
+            .from(".description", { opacity: 0, x: -50 })
+            .from(".form", { opacity: 0, x: 100 });
+
+    }, { scope: container });
+
     return (
-        <div className="py-20 px-4 max-w-screen-lg mx-auto">
+        <div className="py-20 px-4 max-w-screen-lg mx-auto" ref={container}>
             <div className="flex items-center justify-center flex-col gap-5 px-4 py-10
                 rounded-2xl shadow-card-inset newsletter">
                 <div className="text-center">

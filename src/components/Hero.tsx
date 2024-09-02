@@ -1,10 +1,25 @@
+import { useRef } from "react";
 import { Link } from "react-router-dom";
 
 import DashboardUI from "./ui/DashboardUI";
 
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+
 const Hero = () => {
+    const container = useRef(null);
+
+    useGSAP(() => {
+        const timeline = gsap.timeline({ delay: 1 });
+
+        timeline
+            .from(".main-title", { opacity: 0, y: -50 })
+            .from(".join-btn", { opacity: 0, x: -50 })
+            .from(".dashboard", { opacity: 0, y: 50 });
+    }, { scope: container });
+
     return (
-        <div className="max-w-screen-lg mx-auto py-24">
+        <div className="max-w-screen-lg mx-auto py-24" ref={container}>
             <div className="flex flex-col items-center justify-center gap-6 p-4">
                 <h1 className="main-title">
                     Experience Unlimited Connectivity with
